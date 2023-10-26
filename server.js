@@ -4,10 +4,19 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const api = require('./routes/api.js');
+
 const port = 3000;
 
+// Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// establishing static file directory
+app.use(express.static('public'));
+
+// Work in progress
+app.use('/api', api);
 
 // GET Route for homepage
 app.get('/notes', (req, res) =>
@@ -20,15 +29,9 @@ app.get('*', (req, res) =>
 );
 
 
-// We will use this later
-// const { v4: uuidv4 } = require('uuid');
-// const { readAndAppend, readFromFile } = require('./helpers/fsUtils');
 
-// GET Route for retrieving all the notes
-// app.get('/', (req, res) => {
-//   // readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
-//     res.send('Hello World');
-// });
+
+
 
 
 app.listen(port, () => {
@@ -37,32 +40,3 @@ app.listen(port, () => {
 
 
 
-
-// // POST Route for submitting note
-// note.post('/', (req, res) => {
-//     // Destructuring assignment for the items in req.body
-//     const { title, text } = req.body;
-
-//     // If all the required properties are present
-//     if (title && text) {
-//     // Variable for the object we will save
-//     const newNote = {
-//       title,
-//       text,
-//     //   text_id: uuidv4(),
-//     };
-
-//     readAndAppend(newNote, './db/db.json');
-
-//     const response = {
-//       status: 'success',
-//       body: newNote,
-//     };
-
-//     res.json(response);
-//   } else {
-//     res.json('Error in posting note');
-//   }
-// });
-
-// module.exports = note;
