@@ -1,12 +1,10 @@
 
-// I need to take the user input, store it in the db.json file, and then retrieve it from there
-
 const express = require('express');
 const path = require('path');
 const app = express();
 const api = require('./routes/api.js');
 
-const port = 3000;
+const PORT = process.env.PORT || 3001;
 
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
@@ -34,8 +32,8 @@ app.get('*', (req, res) =>
 
 
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
 });
 
 

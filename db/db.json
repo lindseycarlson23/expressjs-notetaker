@@ -1,12 +1,12 @@
 [
     {
-        "title": "Test 6",
-        "text": "text for it",
-        "id": "4715fe85-a8cc-4857-8829-50dab9ee503f"
-    },
-    {
         "title": "New note",
         "text": "text for it",
         "id": "76fcb904-93b0-4231-ac93-8a69452213d8"
+    },
+    {
+        "title": "Another test note",
+        "text": "Lots of great content",
+        "id": "0b1e73d0-01e4-4c0a-946d-296d0689dfd3"
     }
 ]
